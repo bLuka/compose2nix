@@ -48,7 +48,7 @@ func (p *Project) With(name string) string {
 	if p == nil {
 		return name
 	}
-	return fmt.Sprintf("%s%s%s", p.Name, p.separator, name)
+	return name
 }
 
 type IpamConfig struct {
