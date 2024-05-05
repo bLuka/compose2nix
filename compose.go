@@ -224,7 +224,7 @@ func (g *Generator) buildNixContainer(service types.ServiceConfig, networkMap ma
 	for _, v := range service.Volumes {
 		if volume, ok := volumeMap[v.Source]; ok {
 			// Use the actual volume name.
-			c.Volumes[volume.Name] = v.String()
+			c.Volumes[volume.Name] = fmt.Sprintf("%s_%s", g.Project.Name, v.String())
 			if !volume.External {
 				// Add systemd dependencies on volume(s).
 				c.SystemdConfig.Unit.After = append(c.SystemdConfig.Unit.After, g.volumeNameToService(volume.Name))
