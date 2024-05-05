@@ -204,7 +204,7 @@ func (g *Generator) buildNixContainer(service types.ServiceConfig, networkMap ma
 
 	c := &NixContainer{
 		Runtime:       g.Runtime,
-		Name:          name,
+		Name:          name + "-1",
 		Image:         service.Image,
 		Labels:        service.Labels,
 		Ports:         portConfigsToPortStrings(service.Ports),
